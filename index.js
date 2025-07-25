@@ -17,7 +17,10 @@ dotenv.config();
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: "https://chat-app-frontend-nu-flax.vercel.app", // ✅ exact frontend domain
+    credentials: true, // ✅ allow cookies
+  }));
 
 // Read environment variables
 const PORT = process.env.PORT || 3001;
